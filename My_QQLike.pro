@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    src/ui/loginform.cpp
+    src/ui/loginform.cpp \
+    src/ui/moveableframelesswindow.cpp
 
 HEADERS  += mainwindow.h \
-    src/ui/loginform.h
+    src/ui/loginform.h \
+    src/ui/moveableframelesswindow.h
 
 FORMS    += mainwindow.ui \
     src/ui/loginform.ui
