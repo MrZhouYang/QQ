@@ -42,14 +42,15 @@ void MoveableFramelessWindow::mousePressEvent(QMouseEvent *event)
 * @brief 鼠标移动，处理窗体拖动
 * @param event
 */
+//event->x()返回鼠标光标相对于接收事件的窗口小部件的x位置
 void MoveableFramelessWindow::mouseMoveEvent(QMouseEvent *event)
 {
     if((event->buttons()==Qt::LeftButton) && isMove==true){
 
-            QPoint currPoint=this->pos();
+            QPoint currPoint=this->pos(); //返回子窗口相对于父窗口的位置，如果是顶层窗口，则返回相对于桌面的位置
             currPoint.setX(currPoint.x()+event->x()-pressedPoint.x());
             currPoint.setY(currPoint.y()+event->y()-pressedPoint.y());
-            this->move(currPoint);
+            this->move(currPoint); //窗口移动到绝对坐标
      }
 }
 

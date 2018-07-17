@@ -1,5 +1,7 @@
 #include "loginform.h"
 #include "ui_loginform.h"
+#include "mainform.h"
+
 
 LoginForm::LoginForm(QWidget *parent) :
     MoveableFramelessWindow(parent),
@@ -9,6 +11,7 @@ LoginForm::LoginForm(QWidget *parent) :
 
     //关联登录按钮点击
     connect(ui->pushButton_login,SIGNAL(clicked(bool)),this,SLOT(doLoginButClick()) );
+
 }
 
 LoginForm::~LoginForm()
@@ -25,8 +28,8 @@ QWidget *LoginForm::getDragnWidget()
 void LoginForm::doLoginButClick()
 {
 
-//    MainForm*m=new MainForm;
-//    m->show();
-//    this->hide();
+    MainForm *m=new MainForm;
+    m->show();
+    this->hide();
 
 }
