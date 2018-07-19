@@ -33,6 +33,9 @@ MainForm::MainForm(QWidget *parent) :
 
     //转移到右边
     this->move(screenWidth-MAIN_FORM_OADDING-this->width(),MAIN_FORM_OADDING);
+
+    connect(ui->pushButton_minimize,SIGNAL(pressed()),this,SLOT(on_PB_minimize_clicked()));
+    connect(ui->pushButton_shutdown,SIGNAL(pressed()),this,SLOT(on_PB_shutdown_clicked()));
 }
 
 MainForm::~MainForm()
@@ -43,4 +46,14 @@ MainForm::~MainForm()
 QWidget *MainForm::getDragnWidget()
 {
     return ui->main_top;
+}
+
+void MainForm::on_PB_minimize_clicked()
+{
+    this->showMinimized();
+}
+
+void MainForm::on_PB_shutdown_clicked()
+{
+    this->deleteLater();
 }

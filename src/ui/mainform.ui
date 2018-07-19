@@ -164,6 +164,26 @@ QScrollBar::sub-page:vertical {
 	 border:1px solid rgba(0,0,0,100);
 }
 
+/*缩小及关闭按钮*/
+#top_title QPushButton{
+	border:none;
+	width:20px;
+	height:20px;
+	border-radius:2px;
+}
+
+#top_title QPushButton:hover{
+   border:1px solid rgb(13, 97, 137);
+   
+}
+
+#top_title QPushButton#pushButton_minimize{
+	background-image: url(:/sys/mainform_minimize.png);
+}
+
+#top_title QPushButton#pushButton_shutdown{
+	background-image: url(:/sys/mainform_shutdown.png);
+}
 
 
 /*工具栏图标定义*/
@@ -370,6 +390,20 @@ QLineEdit#search{
                 </size>
                </property>
               </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_minimize">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_shutdown">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
              </item>
             </layout>
            </widget>

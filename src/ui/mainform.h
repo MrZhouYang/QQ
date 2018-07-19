@@ -24,6 +24,10 @@ private:
     Ui::MainForm *ui;
 
     QVBoxLayout *page4_layout;
+
+private slots:
+    void on_PB_minimize_clicked();
+    void on_PB_shutdown_clicked();
 };
 
 #endif // MAINFORM_H

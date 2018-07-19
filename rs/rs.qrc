@@ -22,6 +22,8 @@
         <file>qq_tool_zone.png</file>
         <file>level.png</file>
         <file>color_panle.png</file>
+        <file>mainform_minimize.png</file>
+        <file>mainform_shutdown.png</file>
     </qresource>
     <qresource prefix="/media/qun">
         <file>media/qun/1.png</file>
