@@ -27,16 +27,25 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     src/ui/loginform.cpp \
     src/ui/moveableframelesswindow.cpp \
-    src/ui/mainform.cpp
+    src/ui/mainform.cpp \
+    src/ui/collapseview.cpp \
+    src/ui/collapseviewitem.cpp \
+    src/ui/litteriem.cpp
 
 HEADERS  += mainwindow.h \
     src/ui/loginform.h \
     src/ui/moveableframelesswindow.h \
-    src/ui/mainform.h
+    src/ui/mainform.h \
+    src/ui/collapseview.h \
+    src/ui/collapseviewitem.h \
+    src/ui/litteriem.h
 
 FORMS    += mainwindow.ui \
     src/ui/loginform.ui \
-    src/ui/mainform.ui
+    src/ui/mainform.ui \
+    src/ui/collapseview.ui \
+    src/ui/collapseviewitem.ui \
+    src/ui/litteriem.ui
 
 RESOURCES += \
     rs/rs.qrc

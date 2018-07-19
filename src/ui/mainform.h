@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "moveableframelesswindow.h"
+#include <QVBoxLayout>
 
 namespace Ui {
 class MainForm;
@@ -21,6 +22,8 @@ protected:
 
 private:
     Ui::MainForm *ui;
+
+    QVBoxLayout *page4_layout;
 };
 
 #endif // MAINFORM_H
