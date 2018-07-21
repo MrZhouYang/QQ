@@ -28,6 +28,9 @@ private:
 private slots:
     void on_PB_minimize_clicked();
     void on_PB_shutdown_clicked();
+
+    void doChangeColor();
+    void onThemeColorChange(QString colorStr);
 };
 
 #endif // MAINFORM_H

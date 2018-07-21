@@ -2,6 +2,7 @@
 #include "ui_mainform.h"
 
 #include "collapseview.h"
+#include "colorpickform.h"
 
 #include <QDebug>
 #include <QDesktopWidget>
@@ -24,6 +25,9 @@ MainForm::MainForm(QWidget *parent) :
 
     //在布局中加入联系人列表
     page4_layout->addWidget(new CollapseView());
+
+    //关联切换皮肤颜色按钮事件
+    connect(ui->pushButton_skin,SIGNAL(clicked()),this,SLOT(doChangeColor()));
 
     //获取屏幕
     QDesktopWidget* desktopWidget = QApplication::desktop();
@@ -56,4 +60,26 @@ void MainForm::on_PB_minimize_clicked()
 void MainForm::on_PB_shutdown_clicked()
 {
     this->deleteLater();
+}
+
+void MainForm::doChangeColor()
+{
+
+    MY_COLOR_PICK_FORM.show();
+    MY_COLOR_PICK_FORM.raise(); //Raises this widget to the top of the parent widget's stack.
+    MY_COLOR_PICK_FORM.setFocus(); //Gives the keyboard input focus to this widget (or its focus proxy) if this widget or one of its parents is the active window.
+
+    ColorPickForm *f= &(MY_COLOR_PICK_FORM);
+
+    connect(f,SIGNAL(themColorChanged(QString)),this,SLOT(onThemeColorChange(QString)));
+
+}
+
+void MainForm::onThemeColorChange(QString colorStr)
+{
+    //组合成qcc样式表
+    QString style=QString("#%1{background-color:%2;}").arg(ui->centralwidget->objectName(),colorStr);
+    //定义样式
+    ui->centralwidget->setStyleSheet(style);
+
 }
