@@ -133,7 +133,7 @@
 /*定义头像样式*/
 #label_touxiang{
 	border-radius:4px;	
-	border-image: url(:/sys/img/sf.jpg) 1; /*头像图片*/
+	border-image: url(:/media/person/media/person/8.jpg) 1; /*头像图片*/
 	
 }
 
@@ -317,36 +317,70 @@
       </property>
       <item>
        <widget class="QWidget" name="login_top_widget" native="true">
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <property name="spacing">
-          <number>0</number>
+        <property name="styleSheet">
+         <string notr="true">/*缩小及关闭按钮*/
+#login_top_widget QLabel{
+	border:none;
+	width:20px;
+	height:20px;
+	border-radius:2px;
+}
+
+#login_top_widget QLabel:hover{
+   border:1px solid rgb(13, 97, 137);
+   
+}
+
+#login_top_widget QLabel#label_minimize{
+	background-image: url(:/sys/mainform_minimize.png);
+}
+
+#login_top_widget QLabel#label_shutdown{
+	background-image: url(:/sys/mainform_shutdown.png);
+}</string>
+        </property>
+        <widget class="QLabel" name="label">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>427</width>
+           <height>176</height>
+          </rect>
          </property>
-         <property name="leftMargin">
-          <number>0</number>
+         <property name="text">
+          <string/>
          </property>
-         <property name="topMargin">
-          <number>0</number>
+         <property name="scaledContents">
+          <bool>true</bool>
          </property>
-         <property name="rightMargin">
-          <number>0</number>
+        </widget>
+        <widget class="QLabel" name="label_minimize">
+         <property name="geometry">
+          <rect>
+           <x>370</x>
+           <y>10</y>
+           <width>20</width>
+           <height>20</height>
+          </rect>
          </property>
-         <property name="bottomMargin">
-          <number>0</number>
+         <property name="text">
+          <string/>
          </property>
-         <item>
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="pixmap">
-            <pixmap resource="../../rs/rs.qrc">:/sys/img/top.png</pixmap>
-           </property>
-           <property name="scaledContents">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-        </layout>
+        </widget>
+        <widget class="QLabel" name="label_shutdown">
+         <property name="geometry">
+          <rect>
+           <x>400</x>
+           <y>10</y>
+           <width>20</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
        </widget>
       </item>
       <item>

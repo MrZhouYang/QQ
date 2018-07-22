@@ -27,15 +27,15 @@ ColorPickForm::ColorPickForm(QWidget *parent) :
     //初始化颜色
     foreach(QString color,vec){
 
-        QPushButton *l=new QPushButton(this);
+        QPushButton *l = new QPushButton(this);
 
         l->setMinimumSize(COLOR_LABLE_SIZE,COLOR_LABLE_SIZE);
         l->setMaximumSize(COLOR_LABLE_SIZE,COLOR_LABLE_SIZE);
 
         //存入颜色值到属性中，在后来的点击中，可以获取次属性值，用来改变全局主题
-        l->setProperty("color",color);
+        l->setProperty("color",color); //添加动态属性，属性名为name，值为color
 
-        l->installEventFilter(this);
+        l->installEventFilter(this); //设置QPushButton的事件过滤器为本类的事件过滤器
 
         QString style=QString("background-color:%1;")
                 .arg(color);
@@ -98,11 +98,12 @@ void ColorPickForm::onThemeColorChange(QString colorStr)
 
 }
 
+//颜色选择对话框按钮点击槽函数
 void ColorPickForm::onColorPanleClick()
 {
 
     QColorDialog colorD;
-    int rs=colorD.exec();
+    int rs=colorD.exec(); //QDialog::Accepted = 1  QDialog::Rejected = 0
 
     //如果选择了颜色
     if(rs){

@@ -20,6 +20,8 @@ public:
 protected:
     QWidget* getDragnWidget();
 
+    bool eventFilter(QObject *object, QEvent *e);
+
 private slots:
     /**
      * @brief 登录按钮点击
