@@ -526,7 +526,7 @@
           </rect>
          </property>
          <property name="text">
-          <string>337994130</string>
+          <string>stormZhou</string>
          </property>
         </widget>
         <widget class="QLineEdit" name="lineEdit_pass">

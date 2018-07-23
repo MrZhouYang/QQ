@@ -3,6 +3,8 @@
 
 #include <QWidget>
 #include "moveableframelesswindow.h"
+#include <QSqlDatabase>
+#include <QSqlQuery>
 
 
 namespace Ui {
@@ -30,6 +32,9 @@ private slots:
 
 private:
     Ui::LoginForm *ui;
+
+    //判断数据库中是否存在用户username且密码匹配
+    bool IsExisted(const QString &username,const QString &pwd);
 };
 
 #endif // LOGINFORM_H
