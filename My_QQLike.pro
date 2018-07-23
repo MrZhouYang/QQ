@@ -33,7 +33,8 @@ SOURCES += main.cpp\
     src/ui/litteriem.cpp \
     src/model/singleton.cpp \
     src/model/config.cpp \
-    src/ui/colorpickform.cpp
+    src/ui/colorpickform.cpp \
+    src/ui/registerdialog.cpp
 
 HEADERS  += mainwindow.h \
     src/ui/loginform.h \
@@ -44,7 +45,8 @@ HEADERS  += mainwindow.h \
     src/ui/litteriem.h \
     src/model/singleton.h \
     src/model/config.h \
-    src/ui/colorpickform.h
+    src/ui/colorpickform.h \
+    src/ui/registerdialog.h
 
 FORMS    += mainwindow.ui \
     src/ui/loginform.ui \
@@ -52,7 +54,8 @@ FORMS    += mainwindow.ui \
     src/ui/collapseview.ui \
     src/ui/collapseviewitem.ui \
     src/ui/litteriem.ui \
-    src/ui/colorpickform.ui
+    src/ui/colorpickform.ui \
+    src/ui/registerdialog.ui
 
 RESOURCES += \
     rs/rs.qrc
