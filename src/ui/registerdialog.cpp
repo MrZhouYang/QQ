@@ -59,6 +59,10 @@ void RegisterDialog::PB_sure_clicked()
     query.bindValue(":password",userpwd);
     if(query.exec())
         QMessageBox::information(this,tr("提示"),tr("注册成功"));
+
+    //为注册用户在数据库建立其对应的的好友表用来保存好友信息
+    SqliteOperate sql_opr(user_db,this);
+    sql_opr.create_table(userName);
 }
 
 void RegisterDialog::PB_cancle_clicked()

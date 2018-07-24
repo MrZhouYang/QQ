@@ -6,6 +6,7 @@
 #include <QSqlQuery>
 #include <QDebug>
 #include <QMessageBox>
+#include "sqliteoperate.h"
 
 namespace Ui {
 class RegisterDialog;

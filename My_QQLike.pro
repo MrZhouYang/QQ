@@ -11,6 +11,9 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = My_QQLike
 TEMPLATE = app
 
+INCLUDEPATH += ./src/model \
+            ./src/ui
+
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which as been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -34,7 +37,8 @@ SOURCES += main.cpp\
     src/model/singleton.cpp \
     src/model/config.cpp \
     src/ui/colorpickform.cpp \
-    src/ui/registerdialog.cpp
+    src/ui/registerdialog.cpp \
+    src/model/sqliteoperate.cpp
 
 HEADERS  += mainwindow.h \
     src/ui/loginform.h \
@@ -46,7 +50,8 @@ HEADERS  += mainwindow.h \
     src/model/singleton.h \
     src/model/config.h \
     src/ui/colorpickform.h \
-    src/ui/registerdialog.h
+    src/ui/registerdialog.h \
+    src/model/sqliteoperate.h
 
 FORMS    += mainwindow.ui \
     src/ui/loginform.ui \
