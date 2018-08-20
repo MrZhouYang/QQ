@@ -12,11 +12,13 @@
 //主窗口与屏幕边缘的距离
 int MAIN_FORM_OADDING =10;
 
-MainForm::MainForm(QWidget *parent) :
-    MoveableFramelessWindow(parent),
+MainForm::MainForm(QString userName, QString nickName, int port, QWidget *parent) :
+    MoveableFramelessWindow(parent),port_number(port),
     ui(new Ui::MainForm)
 {
     ui->setupUi(this);
+
+    ui->label_nick->setText(nickName);
 
     page4_layout = new QVBoxLayout(this);
     page4_layout->setContentsMargins(0,0,0,0);//设置上下左右的边距均为0
@@ -24,7 +26,7 @@ MainForm::MainForm(QWidget *parent) :
     ui->page_4->setLayout(page4_layout);
 
     //在布局中加入联系人列表
-    page4_layout->addWidget(new CollapseView());
+    page4_layout->addWidget(new CollapseView(userName));
 
     //关联切换皮肤颜色按钮事件
     connect(ui->pushButton_skin,SIGNAL(clicked()),this,SLOT(doChangeColor()));
@@ -83,3 +85,4 @@ void MainForm::onThemeColorChange(QString colorStr)
     ui->centralwidget->setStyleSheet(style);
 
 }
+

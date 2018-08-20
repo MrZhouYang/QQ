@@ -71,9 +71,16 @@ void LoginForm::doLoginButClick()
     }
     else
     {
-        MainForm *m=new MainForm;
+        QString nickName = Get_nickName(userName);
+        int port = Get_port(userName);
+        //qDebug()<<"nickName:"<<Get_nickName(userName)<<"port: "<<Get_port(userName);
+
+        MainForm *m=new MainForm(userName,nickName,port);
         m->show();
         this->hide();
+
+
+
     }
 }
 
@@ -119,3 +126,48 @@ bool LoginForm::IsExisted(const QString &userName, const QString &pwd)
     return false;
 }
 
+//根据用户账号获取用户昵称
+QString LoginForm::Get_nickName(const QString &userName){
+    QSqlDatabase db1 = QSqlDatabase::addDatabase("QSQLITE","connection2");
+    db1.setDatabaseName("D:/MyQTCode(Win32)/test/sqlmodel/RegisteredInfo.db");
+
+    bool ok = db1.open();
+    qDebug()<<"注册账号数据库链接："<<ok;
+
+    QSqlQuery query1(db1);
+
+    QString sql_str = QString("SELECT nickName FROM user WHERE userName='%1'").arg(userName);
+    query1.exec(sql_str);
+
+    QString nickName_temp;
+    while (query1.next()) {
+        nickName_temp = query1.value("nickName").toString();
+        qDebug()<<"数据库中读出的"<<userName<<"的昵称为"<<nickName_temp;
+    }
+
+    db1.close();
+    return nickName_temp;
+}
+
+//根据用户账号获取用户端口号
+int LoginForm::Get_port(const QString &userName){
+    QSqlDatabase db1 = QSqlDatabase::addDatabase("QSQLITE","connection3");
+    db1.setDatabaseName("D:/MyQTCode(Win32)/test/sqlmodel/RegisteredInfo.db");
+
+    bool ok = db1.open();
+    qDebug()<<"注册账号数据库链接："<<ok;
+
+    QSqlQuery query1(db1);
+
+    QString sql_str = QString("SELECT grade FROM user WHERE userName='%1'").arg(userName);
+    query1.exec(sql_str);
+
+    int  port_temp;
+    while (query1.next()) {
+        port_temp = query1.value("grade").toInt();
+        qDebug()<<"数据库中读出的"<<userName<<"的端口号为"<<port_temp;
+    }
+
+    db1.close();
+    return port_temp;
+}

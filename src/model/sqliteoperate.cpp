@@ -86,6 +86,11 @@ bool SqliteOperate::insert_into_friendtable(const QString table_name, const QStr
        return false;//如果不存在该表，返回false
     }
 
+    bool userName_exist = is_userName_exist(table_name,userName);
+    if(userName_exist){
+        return false; //如果已存在该好友，则返回false
+    }
+
     if(query.exec(sql))
         return true;
     else
@@ -95,3 +100,47 @@ bool SqliteOperate::insert_into_friendtable(const QString table_name, const QStr
         return false;
     }
 }
+
+//读取用户的所有好友信息
+UserInfo SqliteOperate::Get_ALL_Friend_Info(const QString table_name)
+{
+    UserInfo Friend_info;
+
+    QString sql = QString("select * from %1").arg(table_name);
+    QSqlQuery query(m_db);
+    //先判断该表是否存在
+    bool exist = isTableExist(table_name);
+    if(!exist)
+    {
+       qDebug()<<"读取好友信息失败";
+       return Friend_info;
+    }
+
+    query.exec(sql);
+    while(query.next()){
+        Friend_info.nickName_v.push_back( query.value("email").toString() );
+        Friend_info.port_v.push_back( query.value("port").toString().toInt() );
+    }
+
+    return Friend_info;
+
+}
+
+//判断friend系列表中的userName是否存在
+bool SqliteOperate::is_userName_exist(const QString table_name, const QString userName){
+    QSqlQuery query(m_db);
+    query.exec(QString("SELECT count(*) FROM %1 WHERE userName='%2'").arg(table_name).arg(userName));
+    int num = 0;
+    while(query.next()){
+        num = query.value(0).toInt();
+    }
+
+    if(num>0){
+        qDebug()<<table_name<<"表中已存在"<<userName;
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+

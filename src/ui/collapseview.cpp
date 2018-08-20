@@ -5,7 +5,7 @@
 #include <QDebug>
 
 
-CollapseView::CollapseView(QWidget *parent) :
+CollapseView::CollapseView(QString userName, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CollapseView)
 {
@@ -20,6 +20,7 @@ CollapseView::CollapseView(QWidget *parent) :
     w_layout->setContentsMargins(0,0,0,0);//设置上下左右的边距均为0
     w_layout->setSpacing(0);
 
+    w_layout->addWidget(new CollapseViewItem_Contact(userName,"常用联系人",this));
     w_layout->addWidget(new CollapseViewItem("我的好友",this));
     w_layout->addWidget(new CollapseViewItem("那些年",this));
     w_layout->addWidget(new CollapseViewItem("陌生人",this));

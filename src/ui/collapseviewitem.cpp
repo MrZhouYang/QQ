@@ -44,11 +44,11 @@ CollapseViewItem::CollapseViewItem(QString titleText, QWidget *parent) :
         addSubItem(new LitterIem(picPath,this));
     }
 
-    //随机产生未上线好友数目
-    int offlinPerson=qrand()%personNumber;
+    //随机产生上线好友数目
+    int onlinePerson=qrand()%personNumber;
 
     titleText = QString("%1 (%2/%3)")
-            .arg(titleText).arg(QString::number(offlinPerson)).arg(QString::number(personNumber));
+            .arg(titleText).arg(QString::number(onlinePerson)).arg(QString::number(personNumber));
 
     this->setTitleText(titleText);
 

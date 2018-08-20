@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QVBoxLayout>
+#include "collapseviewitem_contact.h"
 
 namespace Ui {
 class CollapseView;
@@ -13,7 +14,7 @@ class CollapseView : public QWidget
     Q_OBJECT
 
 public:
-    explicit CollapseView(QWidget *parent = 0);
+    explicit CollapseView(QString userName,QWidget *parent = 0);
     ~CollapseView();
 
 private slots:

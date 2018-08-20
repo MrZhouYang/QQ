@@ -6,6 +6,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include "registerdialog.h"
+#include <QString>
 
 
 namespace Ui {
@@ -31,11 +32,20 @@ private slots:
      */
     void doLoginButClick();
 
+signals:
+    void LoginInfo(int port);
+
 private:
     Ui::LoginForm *ui;
 
     //判断数据库中是否存在用户userName且密码匹配
     bool IsExisted(const QString &userName,const QString &pwd);
+
+    //根据用户账号获取用户昵称
+    QString Get_nickName(const QString &userName);
+
+    //根据用户账号获取用户端口号
+    int Get_port(const QString &userName);
 };
 
 #endif // LOGINFORM_H
