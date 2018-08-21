@@ -7,6 +7,11 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include "sqliteoperate.h"
+#include <QTime>
+#include "litteriem.h"
+#include <QVector>
+
+#define MAX_PERSON_PIC_NUM 8
 
 namespace Ui {
 class CollapseViewItem_Contact;
@@ -53,6 +58,8 @@ private:
     QSqlDatabase user_db;
 
     UserInfo friend_info_s;
+
+    QVector<LitterIem *> litteriem_p_v;
 
 };
 

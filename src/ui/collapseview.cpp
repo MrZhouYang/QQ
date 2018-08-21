@@ -1,7 +1,7 @@
 #include "collapseview.h"
 #include "ui_collapseview.h"
 
-#include "collapseviewitem.h"
+
 #include <QDebug>
 
 
@@ -20,7 +20,9 @@ CollapseView::CollapseView(QString userName, QWidget *parent) :
     w_layout->setContentsMargins(0,0,0,0);//设置上下左右的边距均为0
     w_layout->setSpacing(0);
 
-    w_layout->addWidget(new CollapseViewItem_Contact(userName,"常用联系人",this));
+
+   item_contact_p = new CollapseViewItem_Contact(userName,"常用联系人",this);
+    w_layout->addWidget(item_contact_p);
     w_layout->addWidget(new CollapseViewItem("我的好友",this));
     w_layout->addWidget(new CollapseViewItem("那些年",this));
     w_layout->addWidget(new CollapseViewItem("陌生人",this));
@@ -35,6 +37,8 @@ CollapseView::CollapseView(QString userName, QWidget *parent) :
 
 CollapseView::~CollapseView()
 {
+    delete item_contact_p;
+
     delete ui;
 }
 

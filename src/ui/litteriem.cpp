@@ -13,6 +13,18 @@ LitterIem::LitterIem(QString picPath,QWidget *parent) :
     ui->label_pic->setPixmap(p);
 }
 
+LitterIem::LitterIem(QString picPath, int port, QString Name, QWidget *parent):
+    QWidget(parent),port_number(port),nickName(Name),
+    ui(new Ui::LitterIem)
+{
+    ui->setupUi(this);
+
+    QPixmap p(picPath);
+    ui->label_pic->setPixmap(p);
+
+    ui->label_name->setText(nickName);
+}
+
 LitterIem::~LitterIem()
 {
     delete ui;

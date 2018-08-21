@@ -22,7 +22,6 @@ CollapseViewItem_Contact::CollapseViewItem_Contact(QString userName, QString tit
 
     ui->label->setProperty("slected",!ui->item_con->isVisible());
 
-    this->setTitleText(titleText);
 
     user_db = QSqlDatabase::addDatabase("QSQLITE","connect3");
     user_db.setDatabaseName("D:/MyQTCode(Win32)/test/sqlmodel/RegisteredInfo.db");
@@ -31,41 +30,44 @@ CollapseViewItem_Contact::CollapseViewItem_Contact(QString userName, QString tit
 
     SqliteOperate sql_opr(user_db,this);
     friend_info_s = sql_opr.Get_ALL_Friend_Info(userName);
-    qDebug()<<"friend_info_s.nickName_v  "<< friend_info_s.nickName_v.at(0);
+    qDebug()<<"friend_info_s.nickName_v  "<< friend_info_s.nickName_v.at(0)<<" " <<friend_info_s.port_v.at(0);
+    int friend_number = friend_info_s.nickName_v.size();
 
+    //根据时间制作随机种子
+    QTime time;
+    time = QTime::currentTime();
+    qsrand(time.msec()+time.second()*1000);
 
+    for(int i=0;i<friend_number;++i)
+    {
+        //随机选择好友头像
+        QString picPath = QString(":/media/person/media/person/%1.jpg")
+                .arg(QString::number(qrand()%(MAX_PERSON_PIC_NUM)+1));
+        int port = friend_info_s.port_v.at(i);
+        QString nickName = friend_info_s.nickName_v.at(i);
+        litteriem_p_v.push_back(new LitterIem(picPath,port,nickName,this));
+        addSubItem(litteriem_p_v.at(i));
+    }
 
-//    //根据时间制作随机种子
-//    QTime time;
-//    time = QTime::currentTime();
-//    qsrand(time.msec()+time.second()*1000);
+    //随机产生上线好友数目
+    int onlinePerson=qrand()%friend_number;
 
-//    //随机产生好友数目
-//    int personNumber = qrand()%(MAX_PERSON_PIC_NUM)+1;
-//    qDebug()<<"personNumber:"<<personNumber;
+    titleText = QString("%1 (%2/%3)")
+            .arg(titleText).arg(QString::number(onlinePerson)).arg(QString::number(friend_number));
 
-//    for(int i=0;i<personNumber;++i)
-//    {
-//        //随机选择好友头像
-//        QString picPath = QString(":/media/person/media/person/%1.jpg")
-//                .arg(QString::number(qrand()%(MAX_PERSON_PIC_NUM)+1));
-//        addSubItem(new LitterIem(picPath,this));
-//    }
+    this->setTitleText(titleText);
 
-//    //随机产生上线好友数目
-//    int onlinePerson=qrand()%personNumber;
-
-//    titleText = QString("%1 (%2/%3)")
-//            .arg(titleText).arg(QString::number(onlinePerson)).arg(QString::number(personNumber));
-
-//    this->setTitleText(titleText);
-
-//    connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(onCollapseButClick()));
+    connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(onCollapseButClick()));
 }
 
 CollapseViewItem_Contact::~CollapseViewItem_Contact()
 {
     user_db.close();
+
+    for(auto item:litteriem_p_v){
+        delete item;
+    }
+
     delete ui;
 }
 

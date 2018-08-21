@@ -18,10 +18,22 @@ public:
      * @param parent
      */
     explicit LitterIem(QString picPath,QWidget *parent = 0);
+
+    /**
+     * @brief LitterIem
+     * @param picPath 头像的文件路径
+     * @param port 用户的端口号
+     * @param Name 用户的昵称
+     * @param parent
+     */
+     explicit LitterIem(QString picPath,int port,QString Name,QWidget *parent = 0);
     ~LitterIem();
 
 private:
     Ui::LitterIem *ui;
+
+    int port_number;//用于保存用户的端口号
+    QString nickName; //用于保存用户昵称
 };
 
 #endif // LITTERIEM_H

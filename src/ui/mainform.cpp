@@ -1,9 +1,6 @@
 #include "mainform.h"
 #include "ui_mainform.h"
 
-#include "collapseview.h"
-#include "colorpickform.h"
-
 #include <QDebug>
 #include <QDesktopWidget>
 #include <QApplication>
@@ -26,7 +23,8 @@ MainForm::MainForm(QString userName, QString nickName, int port, QWidget *parent
     ui->page_4->setLayout(page4_layout);
 
     //在布局中加入联系人列表
-    page4_layout->addWidget(new CollapseView(userName));
+    collapseView_p = new CollapseView(userName);
+    page4_layout->addWidget(collapseView_p);
 
     //关联切换皮肤颜色按钮事件
     connect(ui->pushButton_skin,SIGNAL(clicked()),this,SLOT(doChangeColor()));
@@ -46,6 +44,8 @@ MainForm::MainForm(QString userName, QString nickName, int port, QWidget *parent
 
 MainForm::~MainForm()
 {
+    delete collapseView_p;
+
     delete ui;
 }
 

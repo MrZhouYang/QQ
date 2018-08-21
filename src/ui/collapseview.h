@@ -4,6 +4,7 @@
 #include <QWidget>
 #include <QVBoxLayout>
 #include "collapseviewitem_contact.h"
+#include "collapseviewitem.h"
 
 namespace Ui {
 class CollapseView;
@@ -24,6 +25,8 @@ private:
     Ui::CollapseView *ui;
 
     QVBoxLayout *w_layout;
+
+    CollapseViewItem_Contact *item_contact_p;
 };
 
 #endif // COLLAPSEVIEW_H
