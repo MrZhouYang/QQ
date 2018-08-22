@@ -40,7 +40,8 @@ SOURCES += main.cpp\
     src/ui/registerdialog.cpp \
     src/model/sqliteoperate.cpp \
     src/ui/collapseviewitem_contact.cpp \
-    src/model/data_pools.cpp
+    src/model/data_pools.cpp \
+    src/ui/chatform.cpp
 
 HEADERS  += mainwindow.h \
     src/ui/loginform.h \
@@ -55,7 +56,8 @@ HEADERS  += mainwindow.h \
     src/ui/registerdialog.h \
     src/model/sqliteoperate.h \
     src/ui/collapseviewitem_contact.h \
-    src/model/data_pools.h
+    src/model/data_pools.h \
+    src/ui/chatform.h
 
 FORMS    += mainwindow.ui \
     src/ui/loginform.ui \
@@ -65,7 +67,8 @@ FORMS    += mainwindow.ui \
     src/ui/litteriem.ui \
     src/ui/colorpickform.ui \
     src/ui/registerdialog.ui \
-    src/ui/collapseviewitem_contact.ui
+    src/ui/collapseviewitem_contact.ui \
+    src/ui/chatform.ui
 
 RESOURCES += \
     rs/rs.qrc

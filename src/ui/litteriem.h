@@ -2,6 +2,7 @@
 #define LITTERIEM_H
 
 #include <QWidget>
+#include "chatform.h"
 
 namespace Ui {
 class LitterIem;
@@ -29,11 +30,16 @@ public:
      explicit LitterIem(QString picPath,int port,QString Name,QWidget *parent = 0);
     ~LitterIem();
 
+protected:
+    void mouseDoubleClickEvent(QMouseEvent *event);
+
 private:
     Ui::LitterIem *ui;
 
     int port_number;//用于保存用户的端口号
     QString nickName; //用于保存用户昵称
+
+    ChatForm *chatform_p;
 };
 
 #endif // LITTERIEM_H

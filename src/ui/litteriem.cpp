@@ -1,5 +1,6 @@
 #include "litteriem.h"
 #include "ui_litteriem.h"
+#include <QDebug>
 
 #include <QPixmap>
 
@@ -27,5 +28,12 @@ LitterIem::LitterIem(QString picPath, int port, QString Name, QWidget *parent):
 
 LitterIem::~LitterIem()
 {
+
     delete ui;
+}
+
+void LitterIem::mouseDoubleClickEvent(QMouseEvent *event){
+    qDebug() << "鼠标双击";
+    chatform_p = new ChatForm();
+    chatform_p->show();
 }
