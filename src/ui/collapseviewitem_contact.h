@@ -22,7 +22,7 @@ class CollapseViewItem_Contact : public QWidget
     Q_OBJECT
 
 public:
-    explicit CollapseViewItem_Contact(QString userName,QString titleText,QWidget *parent = 0);
+    explicit CollapseViewItem_Contact(QString userName,QString nickName,QString titleText,QWidget *parent = 0);
     ~CollapseViewItem_Contact();
 
     /**

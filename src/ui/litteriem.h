@@ -27,7 +27,7 @@ public:
      * @param Name 用户的昵称
      * @param parent
      */
-     explicit LitterIem(QString picPath,int port,QString Name,QWidget *parent = 0);
+     explicit LitterIem(QString picPath,int port,QString Name,QString senderName,QWidget *parent = 0);
     ~LitterIem();
 
 protected:
@@ -37,7 +37,8 @@ private:
     Ui::LitterIem *ui;
 
     int port_number;//用于保存用户的端口号
-    QString nickName; //用于保存用户昵称
+    QString sender_nickName; //用于保存用户昵称
+    QString Litter_nickName; //用于保存该好友的昵称
 
     ChatForm *chatform_p;
 };

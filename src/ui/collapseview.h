@@ -15,7 +15,7 @@ class CollapseView : public QWidget
     Q_OBJECT
 
 public:
-    explicit CollapseView(QString userName,QWidget *parent = 0);
+    explicit CollapseView(QString userName,QString nickName,QWidget *parent = 0);
     ~CollapseView();
 
 private slots:

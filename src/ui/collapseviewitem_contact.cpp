@@ -2,7 +2,7 @@
 #include "ui_collapseviewitem_contact.h"
 #include <QDebug>
 
-CollapseViewItem_Contact::CollapseViewItem_Contact(QString userName, QString titleText, QWidget *parent) :
+CollapseViewItem_Contact::CollapseViewItem_Contact(QString userName,QString nickName, QString titleText, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CollapseViewItem_Contact)
 {
@@ -44,8 +44,8 @@ CollapseViewItem_Contact::CollapseViewItem_Contact(QString userName, QString tit
         QString picPath = QString(":/media/person/media/person/%1.jpg")
                 .arg(QString::number(qrand()%(MAX_PERSON_PIC_NUM)+1));
         int port = friend_info_s.port_v.at(i);
-        QString nickName = friend_info_s.nickName_v.at(i);
-        litteriem_p_v.push_back(new LitterIem(picPath,port,nickName,this));
+        QString friend_nickName = friend_info_s.nickName_v.at(i);
+        litteriem_p_v.push_back(new LitterIem(picPath,port,friend_nickName,nickName,this));
         addSubItem(litteriem_p_v.at(i));
     }
 

@@ -23,7 +23,7 @@ MainForm::MainForm(QString userName, QString nickName, int port, QWidget *parent
     ui->page_4->setLayout(page4_layout);
 
     //在布局中加入联系人列表
-    collapseView_p = new CollapseView(userName);
+    collapseView_p = new CollapseView(userName,nickName);
     page4_layout->addWidget(collapseView_p);
 
     //关联切换皮肤颜色按钮事件

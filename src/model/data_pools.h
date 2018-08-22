@@ -9,5 +9,6 @@ struct UserInfo{
     QVector<int> port_v;
 };
 
+enum MessageType{Message, FileName, Refuse};
 
 #endif // DATA_POOLS_H

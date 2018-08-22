@@ -39,7 +39,7 @@
 	border-right:1px solid rgb(13,97,137);
 }
 
-#textEdit_show{
+#textBrowser_show{
 	border-left:1px solid rgb(13,97,137);
 }
 
@@ -83,9 +83,39 @@ QTextEdit{
 	border:0px;
 }
 
+#w_function QPushButton#pb_cut{
+	background-image: url(:/sys/Chat/chat_cut.png);
+	background-repeat: no-repeat;
+}
 
+#w_function QPushButton#pb_expression{
+	background-image: url(:/sys/Chat/chat_expression.png);
+	background-repeat: no-repeat;
+}
 
+#w_function QPushButton#pb_more{
+	background-image: url(:/sys/Chat/chat_more.png);
+	background-repeat: no-repeat;
+}
 
+#w_function QPushButton#pb_sendfile{
+	background-image: url(:/sys/Chat/chat_sendfile.png);
+	background-repeat: no-repeat;
+}
+
+#w_function QPushButton#pb_sendpic{
+	background-image: url(:/sys/Chat/chat_sendpic.png);
+	background-repeat: no-repeat;
+}
+
+#w_function QPushButton#pb_history{
+	background-image: url(:/sys/Chat/chat_history.png);
+	background-repeat: no-repeat;
+}
+
+#w_function QPushButton{
+	background-color: rgb(255, 255, 255,0);
+}
 </string>
   </property>
   <widget class="QWidget" name="w_Main" native="true">
@@ -204,7 +234,7 @@ QTextEdit{
              <height>361</height>
             </size>
            </property>
-           <widget class="QTextEdit" name="textEdit_show">
+           <widget class="QTextBrowser" name="textBrowser_show">
             <property name="geometry">
              <rect>
               <x>0</x>
@@ -214,13 +244,6 @@ QTextEdit{
              </rect>
             </property>
            </widget>
-          </widget>
-         </item>
-         <item>
-          <widget class="Line" name="line">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
           </widget>
          </item>
          <item>
@@ -249,14 +272,14 @@ QTextEdit{
             <widget class="QPushButton" name="pb_history">
              <property name="geometry">
               <rect>
-               <x>650</x>
+               <x>634</x>
                <y>1</y>
-               <width>25</width>
-               <height>25</height>
+               <width>40</width>
+               <height>40</height>
               </rect>
              </property>
              <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                <horstretch>0</horstretch>
                <verstretch>0</verstretch>
               </sizepolicy>
@@ -264,18 +287,14 @@ QTextEdit{
              <property name="text">
               <string/>
              </property>
-             <property name="icon">
-              <iconset resource="../../rs/rs.qrc">
-               <normaloff>:/sys/Chat/chat_history.png</normaloff>:/sys/Chat/chat_history.png</iconset>
-             </property>
             </widget>
             <widget class="QWidget" name="layoutWidget">
              <property name="geometry">
               <rect>
-               <x>10</x>
+               <x>0</x>
                <y>0</y>
-               <width>200</width>
-               <height>36</height>
+               <width>211</width>
+               <height>41</height>
               </rect>
              </property>
              <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -285,7 +304,7 @@ QTextEdit{
               <item>
                <widget class="QPushButton" name="pb_expression">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
@@ -295,10 +314,6 @@ QTextEdit{
                 </property>
                 <property name="text">
                  <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../rs/rs.qrc">
-                  <normaloff>:/sys/Chat/chat_expression.png</normaloff>:/sys/Chat/chat_expression.png</iconset>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -311,68 +326,55 @@ QTextEdit{
               <item>
                <widget class="QPushButton" name="pb_cut">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
+                <property name="autoFillBackground">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../rs/rs.qrc">
-                  <normaloff>:/sys/Chat/chat_cut.png</normaloff>:/sys/Chat/chat_cut.png</iconset>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pb_sendfile">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
                 <property name="text">
                  <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../rs/rs.qrc">
-                  <normaloff>:/sys/Chat/chat_sendfile.png</normaloff>:/sys/Chat/chat_sendfile.png</iconset>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pb_sendpic">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
                 <property name="text">
                  <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../rs/rs.qrc">
-                  <normaloff>:/sys/Chat/chat_sendpic.png</normaloff>:/sys/Chat/chat_sendpic.png</iconset>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="pb_more">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
                 <property name="text">
                  <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../../rs/rs.qrc">
-                  <normaloff>:/sys/Chat/chat_more.png</normaloff>:/sys/Chat/chat_more.png</iconset>
                 </property>
                </widget>
               </item>
@@ -450,13 +452,6 @@ QTextEdit{
         </layout>
        </item>
        <item>
-        <widget class="Line" name="line_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-        </widget>
-       </item>
-       <item>
         <widget class="QWidget" name="w_show" native="true">
          <property name="autoFillBackground">
           <bool>false</bool>
@@ -482,8 +477,6 @@ QTextEdit{
    </widget>
   </widget>
  </widget>
- <resources>
-  <include location="../../rs/rs.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
