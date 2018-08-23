@@ -9,6 +9,8 @@
 #include <QDataStream>
 #include <QMessageBox>
 #include <QScrollBar>
+#include <QSqlDatabase>
+#include <QSqlQuery>
 
 namespace Ui {
 class ChatForm;
@@ -38,6 +40,13 @@ private:
     * @return
     */
     void sendMessage( MessageType type );
+
+    /**
+    * @brief 从数据库中获取需要绑定的IP
+    * @param 账号名
+    * @return ip地址
+    */
+    int get_bind_ip( QString userName );
 
 private slots:
     void on_PB_minimize_clicked();
