@@ -28,7 +28,7 @@ public:
      * @param parent
      */
      explicit LitterIem(QString picPath,int port,QString Name,QString senderName,QWidget *parent = 0);
-    ~LitterIem();
+    ~LitterIem(); 
 
 protected:
     void mouseDoubleClickEvent(QMouseEvent *event);
@@ -41,6 +41,16 @@ private:
     QString Litter_nickName; //用于保存该好友的昵称
 
     ChatForm *chatform_p;
+
+    /**
+    * @brief 从数据库中获取需要绑定的IP
+    * @param 账号昵称
+    * @return ip地址
+    */
+    int get_bind_port( QString Name );
+
+signals:
+    void wake_message_to(int port, QString showname);
 };
 
 #endif // LITTERIEM_H

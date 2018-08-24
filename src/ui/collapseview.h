@@ -18,6 +18,10 @@ public:
     explicit CollapseView(QString userName,QString nickName,QWidget *parent = 0);
     ~CollapseView();
 
+    inline CollapseViewItem_Contact* Get_item_contact_p(){
+        return item_contact_p;
+    }
+
 private slots:
     void butClick();
 

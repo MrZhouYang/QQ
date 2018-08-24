@@ -43,6 +43,14 @@ public:
      */
     void addSubItem(QWidget*widget);
 
+    inline int Get_itemv_size(){
+        return litteriem_p_v.size();
+    }
+
+    inline LitterIem *Get_item_P(int i){
+        return litteriem_p_v.at(i);
+    }
+
 private slots:
 
     /**
